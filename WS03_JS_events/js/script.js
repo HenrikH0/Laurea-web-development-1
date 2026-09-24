@@ -70,4 +70,12 @@ form.addEventListener("submit", function(event) {
 feedback.value = "";
 status.innerHTML = "Kiitos palautteestasi!";
 charcount.innerHTML = "0/200";
-preview.innerHTML = "";
+preview.innerHTML = "";});
+
+document.addEventListener("keydown", function(event) {
+    console.log(event);
+    const keybox = document.querySelector("#keybox");
+    const keyinfo = document.querySelector("#keyinfo");
+    keybox.textContent = event.key;
+    keybox.style.fontsize = "90px";
+    keyinfo.textContent = `painettu näppäin: ${event.key}, näppäinkoodi: ${event.code}`;});
