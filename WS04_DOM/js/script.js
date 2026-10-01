@@ -90,3 +90,36 @@ animalImage.addEventListener("mouseleave", function() {
     animalImage.classList.remove("image-highlight");
 });
 //teht 4
+const animalForm = document.querySelector("#animalForm");
+const observationAnimal = document.querySelector("#observationAnimal");
+const observationLocation = document.querySelector("#observationLocation");
+const observationDate = document.querySelector("#observationDate");
+const observationTableBody = document.querySelector("#observationTableBody");
+
+animalForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    const animal = observationAnimal.value.trim();
+    const location = observationLocation.value.trim();
+    const date = observationDate.value;
+
+    if (animal === "" || location === "" || date === "") {
+        alert("Täytä kaikki kentät!");
+        return;
+    }
+
+    const newRow = document.createElement("tr");
+    const animalCell = document.createElement("td");
+    const locationCell = document.createElement("td");
+    const dateCell = document.createElement("td");
+
+    animalCell.textContent = animal;
+    locationCell.textContent = location;
+
+    const dateParts = date.split("-");
+    dateCell.textContent = `${dateParts[2]}.${dateParts[1]}.${dateParts[0]}`;
+
+    newRow.append(animalCell, locationCell, dateCell);
+    observationTableBody.append(newRow);
+    animalForm.reset();
+});
