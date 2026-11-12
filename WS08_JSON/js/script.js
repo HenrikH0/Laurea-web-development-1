@@ -1,4 +1,4 @@
-const API_KEY = "3d7d1eb4398a3ce94a4411e389736cc5";
+const API_KEY = "YOUR_API_KEY";
 
 const fetchButton = document.getElementById("fetchWeather");
 const city = document.getElementById("city");
